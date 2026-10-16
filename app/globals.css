@@ -1,26 +1,289 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ========================================================
+     User Light Mode Palette:
+     #FFBE91 (Peach: rgb(255, 190, 145))
+     #FFDDB0 (Soft Apricot: rgb(255, 221, 176))
+     #FFFCE1 (Warm Ivory: rgb(255, 252, 225))
+     #CFEBFF (Soft Ice Blue: rgb(207, 235, 255))
+     ======================================================== */
+  --palette-peach: #FFBE91;
+  --palette-apricot: #FFDDB0;
+  --palette-ivory: #FFFCE1;
+  --palette-ice: #CFEBFF;
+
+  /* Theme tokens */
+  --bg-color: #FFFCE1;
+  --text-color: #1A3636;
+  --text-muted: #596E67;
+  --card-bg: #FFFFFF;
+  --border-color: #1A3636;
+  --dot-color: #F0DCBE;
+  --shadow-color: #1A3636;
+
+  /* Accent aliases */
+  --accent-peach: #FFBE91;
+  --accent-apricot: #FFDDB0;
+  --accent-ivory: #FFFCE1;
+  --accent-ice: #CFEBFF;
+
+  /* Backward compatibility for component accents */
+  --accent-violet: #FFBE91;
+  --accent-pink: #FFDDB0;
+  --accent-amber: #CFEBFF;
+  --accent-mint: #FFBE91;
+
+  /* Action buttons */
+  --btn-download: #FFBE91;
+  --btn-download-text: #1A3636;
+  --btn-view: #CFEBFF;
+  --btn-view-text: #1A3636;
+  --btn-mail: #FFDDB0;
+  --btn-mail-text: #1A3636;
+  --btn-text: #1A3636;
+
+  /* CTA Banner gradient */
+  --cta-from: #FFBE91;
+  --cta-to: #FFDDB0;
+  --cta-text: #1A3636;
+
+  /* Toggle button */
+  --toggle-bg: #FFFFFF;
+  --toggle-pill: #FFBE91;
+  --toggle-icon: #1A3636;
+
+  /* Confetti shapes */
+  --confetti-1: #FFBE91;
+  --confetti-2: #FFDDB0;
+  --confetti-3: #CFEBFF;
+  --confetti-4: #FFBE91;
+
+  /* Social link badges */
+  --link-twitter-bg: #FFBE91;
+  --link-twitter-text: #1A3636;
+  --link-codeforces-bg: #CFEBFF;
+  --link-codeforces-text: #1A3636;
+  --link-leetcode-bg: #FFDDB0;
+  --link-leetcode-text: #1A3636;
+  --link-codechef-bg: #FFBE91;
+  --link-codechef-text: #1A3636;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+[data-theme="dark"] {
+  /* ========================================================
+     User Dark Mode Palette:
+     #1A3636 (Deep Pine: rgb(26, 54, 54))
+     #40534C (Slate Moss: rgb(64, 83, 76))
+     #677D6A (Muted Sage: rgb(103, 125, 106))
+     #D6BD98 (Warm Sand: rgb(214, 189, 152))
+     ======================================================== */
+  --palette-deep-forest: #1A3636;
+  --palette-dark-sage: #40534C;
+  --palette-muted-sage: #677D6A;
+  --palette-warm-sand: #D6BD98;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Theme tokens */
+  --bg-color: #1A3636;
+  --text-color: #FFFCE1;
+  --text-muted: #D6BD98;
+  --card-bg: #40534C;
+  --border-color: #677D6A;
+  --dot-color: #274744;
+  --shadow-color: #0B1919;
+
+  /* Accent aliases */
+  --accent-peach: #D6BD98;
+  --accent-apricot: #677D6A;
+  --accent-ivory: #40534C;
+  --accent-ice: #D6BD98;
+
+  /* Backward compatibility for component accents */
+  --accent-violet: #D6BD98;
+  --accent-pink: #677D6A;
+  --accent-amber: #40534C;
+  --accent-mint: #D6BD98;
+
+  /* Action buttons */
+  --btn-download: #D6BD98;
+  --btn-download-text: #1A3636;
+  --btn-view: #677D6A;
+  --btn-view-text: #FFFCE1;
+  --btn-mail: #40534C;
+  --btn-mail-text: #D6BD98;
+  --btn-text: #FFFCE1;
+
+  /* CTA Banner gradient */
+  --cta-from: #D6BD98;
+  --cta-to: #C2A980;
+  --cta-text: #1A3636;
+
+  /* Toggle button */
+  --toggle-bg: #1A3636;
+  --toggle-pill: #677D6A;
+  --toggle-icon: #D6BD98;
+
+  /* Confetti shapes */
+  --confetti-1: #D6BD98;
+  --confetti-2: #677D6A;
+  --confetti-3: #40534C;
+  --confetti-4: #D6BD98;
+
+  /* Social link badges */
+  --link-twitter-bg: #D6BD98;
+  --link-twitter-text: #1A3636;
+  --link-codeforces-bg: #677D6A;
+  --link-codeforces-text: #FFFCE1;
+  --link-leetcode-bg: #D6BD98;
+  --link-leetcode-text: #1A3636;
+  --link-codechef-bg: #40534C;
+  --link-codechef-text: #D6BD98;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-outfit), "Outfit", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Hard shadow utilities using current theme shadow color */
+.hard-shadow {
+  box-shadow: 4px 4px 0px 0px var(--shadow-color);
+}
+
+.hard-shadow-hover:hover {
+  box-shadow: 6px 6px 0px 0px var(--shadow-color);
+  transform: translate(-2px, -2px) scale(1.02);
+}
+
+.hard-shadow-active:active {
+  box-shadow: 2px 2px 0px 0px var(--shadow-color);
+  transform: translate(2px, 2px) scale(0.98);
+}
+
+.bouncy-transition {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Inverted icon badge for GitHub and AtCoder */
+.link-icon-invert {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+[data-theme="dark"] .link-icon-invert {
+  background-color: var(--palette-warm-sand);
+  color: var(--palette-deep-forest);
+}
+
+/* Specific Action Buttons */
+#btn-download-resume {
+  background-color: var(--btn-download) !important;
+  color: var(--btn-download-text) !important;
+}
+
+#btn-view-resume {
+  background-color: var(--btn-view) !important;
+  color: var(--btn-view-text) !important;
+}
+
+#btn-mail-me {
+  background-color: var(--btn-mail) !important;
+  color: var(--btn-mail-text) !important;
+}
+
+/* Dot grid background */
+.dot-grid {
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+/* Confetti keyframes and animations */
+.confetti {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes float-v {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+@keyframes float-h {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(30px) rotate(-10deg);
+  }
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate(-20px, 20px) rotate(55deg);
+  }
+}
+
+@keyframes slow-scale {
+  0%, 100% {
+    transform: scale(1) rotate(12deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(15deg);
+  }
+}
+
+.animate-float-v {
+  animation: float-v 8s ease-in-out infinite;
+}
+
+.animate-float-h {
+  animation: float-h 12s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 15s ease-in-out infinite;
+}
+
+.animate-slow-scale {
+  animation: slow-scale 10s ease-in-out infinite;
+}
+
+/* Smooth transition when toggling theme */
+.theme-transition * {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pop {
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
 }
