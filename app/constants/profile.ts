@@ -34,13 +34,13 @@ export const PROFILE: ProfileConfig = {
     {
       id: "btn-download-resume",
       label: "Download Resume",
-      href: "#",
+      href: "https://drive.google.com/uc?export=download&id=1tYgiCuErrmGT7md8a_4eKU6UYD9Czk4k",
       color: "var(--btn-download)",
     },
     {
       id: "btn-view-resume",
       label: "View Resume",
-      href: "#",
+      href: "https://drive.google.com/file/d/1tYgiCuErrmGT7md8a_4eKU6UYD9Czk4k/view?usp=sharing",
       color: "var(--btn-view)",
     },
     {
