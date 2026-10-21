@@ -33,6 +33,7 @@ export default function RootLayout({
       className={`${outfit.variable} ${plusJakarta.variable} h-full antialiased`}
     >
       <head>
+        <meta name="nishlinks" content="nishlinks" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
